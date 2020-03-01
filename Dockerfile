@@ -17,9 +17,17 @@ ENV IP_SOURCE="https://github.com/InvoicePlane/InvoicePlane/releases/download" \
     MYSQL_PASSWORD="my-secret-pw" \
     MYSQL_DB="invoiceplane" \
     MYSQL_PORT="3306" \
-    IP_URL="http://127.0.0.1" \
+    IP_URL="http:\\/\\/127.0.0.1" \
     HOST_URL="127.0.0.1" \
     DISABLE_SETUP="false"
+    
+ARG MYSQL_HOST=${MYSQL_HOST} \
+    MYSQL_USER=${MYSQL_USER} \
+    MYSQL_PASSWORD=${MYSQL_PASSWORD} \
+    MYSQL_DB=${MYSQL_DB} \
+    MYSQL_PORT=${MYSQL_PORT} \
+    IP_URL=${IP_URL} \
+    DISABLE_SETUP=${DISABLE_SETUP}
 
 COPY setup /config
 WORKDIR /var/www/html
